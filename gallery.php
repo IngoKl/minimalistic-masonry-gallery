@@ -5,7 +5,7 @@ error_reporting(E_ERROR | E_PARSE);
 $galleryTitle = 'Gallery';
 $galleryPhotographer = 'Photographer';
 $galleryDescription = 'A Simple Gallery';
-$galleryRandomize = true;
+$galleryRandomize = false;
 $imagesPerPage = 10;
 $imageFormat = 'jpg';
 $imageDirectory = 'imgs/';
@@ -22,7 +22,7 @@ if (!file_exists($imageDirectory.'sorting.txt')) {
 
 	$fp = fopen($imageDirectory.'sorting.txt', 'w');
 	foreach ($imagesInDir as $image) {
-		fwrite($fp, $image.'\n');
+		fwrite($fp, $image.PHP_EOL);
 	}
 	fclose($fp);
 }
