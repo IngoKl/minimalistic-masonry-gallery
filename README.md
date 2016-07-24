@@ -1,6 +1,8 @@
 # Minimalistic Masonry Gallery
 This is a minimalistic image/photo gallery written in PHP.
 
+![Screenshot](https://github.com/IngoKl/minimalistic-masonry-gallery/blob/master/minimalistic-masonry-gallery.png?raw=true)
+
 ## Features
 - Extremely easy to use and setup
 - Simple pagination
