@@ -12,7 +12,6 @@ include('gallery.php');
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<link href="gallery.css" rel="stylesheet">
-		<link href="colorbox2.css" rel="stylesheet">
 		<link href="components/colorbox/example2/colorbox.css" rel="stylesheet">
 
 		<!--[if IE]>
@@ -34,22 +33,29 @@ include('gallery.php');
 
 		<div class="imageContainer">
 		<?php outputGallery(); ?>
-		</div>
-		
+		</div>	
+
+		<footer>
+			Es befinden sich <em><?php outputNumberOfImages(); ?></em> Bilder in dieser Gallerie.
+		</footer>
+
 	</div>
 
 	<!-- JavaScript for the Masonry-Grid and the Lightbox -->
 	<script src="components/jquery/jquery.min.js"></script>
 	<script src="vendor/desandro/masonry/dist/masonry.pkgd.min.js"></script>
+	<script src="vendor/desandro/imagesloaded/imagesloaded.pkgd.min.js"></script>
 	<script src="components/colorbox/jquery.colorbox-min.js"></script>
 
 	<script>
 	$(document).ready(function(){
-		$('.imageContainer').masonry({
-			itemSelector: 'img',
+		$(".imageContainer").imagesLoaded(function(){
+			$('.imageContainer').masonry({
+				itemSelector: 'img',
+			});
 		});
 
-		$(".imageContainer a").colorbox({rel:'gallery', maxWidth: '800px', maxHeight: '800px', current: ''});
+		$(".imageContainer a").colorbox({rel: 'gallery', maxWidth: '800px', maxHeight: '800px', current: ''});
 	});
 	</script>
 

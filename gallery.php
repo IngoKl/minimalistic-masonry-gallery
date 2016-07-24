@@ -5,13 +5,31 @@ error_reporting(E_ERROR | E_PARSE);
 $galleryTitle = 'Gallery';
 $galleryPhotographer = 'Photographer';
 $galleryDescription = 'A Simple Gallery';
+$galleryRandomize = true;
 $imagesPerPage = 10;
-$imageFormat = 'png';
+$imageFormat = 'jpg';
 $imageDirectory = 'imgs/';
 
 //Retrieval of the images
 $images = array();
-foreach (glob($imageDirectory.'*.'.$imageFormat) as $image) {
+
+if (!file_exists($imageDirectory.'sorting.txt')) {
+	$imagesInDir = glob($imageDirectory.'*.'.$imageFormat);
+	
+	if ($galleryRandomize) {
+		shuffle($imagesInDir);
+	}
+
+	$fp = fopen($imageDirectory.'sorting.txt', 'w');
+	foreach ($imagesInDir as $image) {
+		fwrite($fp, $image.'\n');
+	}
+	fclose($fp);
+}
+
+$imagesInDir = file($imageDirectory.'sorting.txt');
+foreach ($imagesInDir as $image) {
+	$image = trim($image);
 	$imageSize = getimagesize($image);
 	try {
 		$imageExif = exif_read_data($image);
@@ -56,4 +74,10 @@ function outputPagination() {
 			echo '<li><a href="?page='.$i.'">'.$i.'</a></li>';
 		}
 	}
+}
+
+//Function that print the number of images in the gallery
+function outputNumberOfImages() {
+	global $images;
+	echo sizeof($images);
 }
