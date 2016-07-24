@@ -8,6 +8,8 @@ include('gallery.php');
 		<meta charset="utf-8">
 		<title><?php echo $galleryTitle; ?></title>
 		<meta name="description" content="<?php echo $galleryDescription; ?>">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<link href="gallery.css" rel="stylesheet">
 		<link href="colorbox2.css" rel="stylesheet">
