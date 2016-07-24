@@ -1,5 +1,5 @@
 # Minimalistic Masonry Gallery
-This is a minimalistic image/photo gallery written in PHP.
+This is a minimalistic image/photo gallery written in PHP. It grabs images from a given folder and generates a minimalistic, but appealing gallery.
 
 ![Screenshot](https://github.com/IngoKl/minimalistic-masonry-gallery/blob/master/minimalistic-masonry-gallery.png?raw=true)
 
