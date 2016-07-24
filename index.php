@@ -13,7 +13,7 @@ include('gallery.php');
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<link href="gallery.css" rel="stylesheet">
 		<link href="colorbox2.css" rel="stylesheet">
-		<link href="components/colorbox/example3/colorbox.css" rel="stylesheet">
+		<link href="components/colorbox/example2/colorbox.css" rel="stylesheet">
 
 		<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -44,13 +44,12 @@ include('gallery.php');
 	<script src="components/colorbox/jquery.colorbox-min.js"></script>
 
 	<script>
-	$('.imageContainer').masonry({
-		itemSelector: 'img',
-	});
-
 	$(document).ready(function(){
-		$(".imageContainer a").colorbox({rel:'gallery', maxWidth: '800px', maxHeight: '800px'
-			,arrowKey: 'false', escKey: 'false', current: ''});
+		$('.imageContainer').masonry({
+			itemSelector: 'img',
+		});
+
+		$(".imageContainer a").colorbox({rel:'gallery', maxWidth: '800px', maxHeight: '800px', current: ''});
 	});
 	</script>
 
