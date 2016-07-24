@@ -67,12 +67,27 @@ function outputGallery($page) {
 function outputPagination() {
 	global $images;
 	global $imagesPerPage;
+	$pageNr = intval($_GET["page"]);
+
 	$nrOfPages = ceil(sizeof($images)/$imagesPerPage);
 
 	if ($nrOfPages > 1) {
-		for ($i = 1; $i <= $nrOfPages; $i++) {
-			echo '<li><a href="?page='.$i.'">'.$i.'</a></li>';
+		if ($pageNr > 0) {
+			echo '<li class="arrow"><a href="?page='.($pageNr - 1).'"><</a></li>';
 		}
+
+		for ($i = 1; $i <= $nrOfPages; $i++) {
+			if ($pageNr == $i) {
+				echo '<li class="active"><a href="?page='.$i.'">'.$i.'</a></li>';
+			} else {
+				echo '<li><a href="?page='.$i.'">'.$i.'</a></li>';
+			}			
+		}
+
+		if (($pageNr + 1) <= $nrOfPages) {
+			echo '<li class="arrow"><a href="?page='.($pageNr + 1).'">></a></li>';
+		}
+
 	}
 }
 
