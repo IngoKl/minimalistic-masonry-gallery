@@ -4,6 +4,7 @@ error_reporting(E_ERROR | E_PARSE);
 //Settings
 $galleryTitle = 'Gallery';
 $galleryPhotographer = 'Photographer';
+$galleryPhotographerEmail = '';
 $galleryDescription = 'A Simple Gallery';
 $galleryRandomize = false;
 $imagesPerPage = 10;

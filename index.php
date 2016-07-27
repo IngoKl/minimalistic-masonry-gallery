@@ -23,7 +23,14 @@ include('gallery.php');
 	<div class="galleryContainer">
 		<h1><?php echo $galleryTitle; ?></h1>
 		<h2><?php echo $galleryDescription; ?></h2>
-		<h3><?php echo $galleryPhotographer; ?></h3>
+		<h3>
+		<?php 
+		echo $galleryPhotographer;
+		if (!empty($galleryPhotographerEmail)) {
+			echo '<a href="mailto:'.$galleryPhotographerEmail.'">&nbsp;&#x2709;</a>';
+		}
+		?>
+		</h3>
 
 		<div class="paginationContainer">
 			<ul>
