@@ -70,10 +70,14 @@ function outputPagination() {
 	global $imagesPerPage;
 	$pageNr = intval($_GET["page"]);
 
+	if ($pageNr == '') {
+		$pageNr = 1;
+	}
+
 	$nrOfPages = ceil(sizeof($images)/$imagesPerPage);
 
 	if ($nrOfPages > 1) {
-		if ($pageNr > 0) {
+		if ($pageNr > 0 && $pageNr != 1) {
 			echo '<li class="arrow"><a href="?page='.($pageNr - 1).'"><</a></li>';
 		}
 
