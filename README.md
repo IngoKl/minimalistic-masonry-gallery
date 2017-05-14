@@ -14,3 +14,6 @@ This is a minimalistic image/photo gallery written in PHP. It grabs images from 
 Upload the files to a webserver and run `composer` in order to get the dependencies. Adjust some basic settings in the `gallery.php` and upload you images to the /imgs folder. The /imgs folder should be writeable by the script.
 
 After uploading new images, the `imgs/sorting.txt` file should be deleted for reindexing.
+
+### Composer
+If you don't have [composer](https://getcomposer.org/) installed, run `curl -sS https://getcomposer.org/installer | php` followed by `php composer.phar install`. 
