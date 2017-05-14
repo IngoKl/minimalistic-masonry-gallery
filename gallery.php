@@ -19,6 +19,8 @@ if (!file_exists($imageDirectory.'sorting.txt')) {
 	
 	if ($galleryRandomize) {
 		shuffle($imagesInDir);
+	} else {
+		natsort($imagesInDir);
 	}
 
 	$fp = fopen($imageDirectory.'sorting.txt', 'w');
