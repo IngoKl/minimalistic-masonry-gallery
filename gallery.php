@@ -48,7 +48,7 @@ foreach ($imagesInDir as $image) {
 }
 
 //Function that prints the images
-function outputGallery($page) {
+function outputGallery() {
 	global $images;
 	global $imagesPerPage;
 
