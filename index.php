@@ -40,8 +40,13 @@ include('gallery.php');
 
 		<div class="imageContainer">
 		<?php outputGallery(); ?>
-		</div>	
+		</div>
 
+		<div class="paginationLowerContainer">
+                        <ul>
+                        <?php outputPaginationLower(); ?>
+                        </ul>
+                </div>
 		<footer>
 			Es befinden sich <em><?php outputNumberOfImages(); ?></em> Bilder in dieser Gallerie.
 		</footer>
