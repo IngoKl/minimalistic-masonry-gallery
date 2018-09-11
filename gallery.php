@@ -67,7 +67,7 @@ function outputGallery() {
 }
 
 //Function that prints the pagination
-function outputPagination() {
+function outputPaginationLower() {
 	global $images;
 	global $imagesPerPage;
 	$pageNr = intval($_GET["page"]);
@@ -94,6 +94,52 @@ function outputPagination() {
 		if (($pageNr + 1) <= $nrOfPages) {
 			echo '<li class="arrow"><a href="?page='.($pageNr + 1).'">></a></li>';
 		}
+
+	}
+}
+
+//Function that prints the abbreviated pagination
+function outputPagination() {
+	global $images;
+	global $imagesPerPage;
+	$pageNr = intval($_GET["page"]);
+
+	if ($pageNr == '') {
+		$pageNr = 1;
+	}
+
+	$nrOfPages = ceil(sizeof($images)/$imagesPerPage);
+
+	if ($nrOfPages > 1) {
+		if ($pageNr > 0 && $pageNr != 1) {
+			if ($pageNr >= 3) {
+				echo '<li class="arrow"><a href="?page=1"><<</a></li>';
+			}
+			echo '<li class="arrow"><a href="?page='.($pageNr - 1).'"><</a></li>';
+		}
+
+		for ($i = -2; $i <= 2; $i++) {
+			$finalPageNum = $pageNr + $i;
+			if ($finalPageNum <= 0) {
+				//Draw nothing
+			} else if ($finalPageNum <= $nrOfPages) {
+				if ($i == 0) {
+					echo '<li class="active"><a href="?page='.$finalPageNum.'">'.$finalPageNum.'</a></li>';
+				} else {
+					echo '<li><a href="?page='.$finalPageNum.'">'.$finalPageNum.'</a></li>';
+				}	
+			}
+			
+					
+		}
+		
+		if (($pageNr + 3) <= $nrOfPages) {
+			echo '<li class="arrow"><a href="?page='.($pageNr + 1).'">></a></li>';
+			if (($pageNr+4) <= $nrOfPages) {
+				echo '<li class="arrow"><a href="?page='.($nrOfPages).'">>></a></li>';
+			}
+		}
+		
 
 	}
 }
