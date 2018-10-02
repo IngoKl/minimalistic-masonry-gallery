@@ -2,14 +2,7 @@
 error_reporting(E_ERROR | E_PARSE);
 
 //Settings
-$galleryTitle = 'Gallery';
-$galleryPhotographer = 'Photographer';
-$galleryPhotographerEmail = '';
-$galleryDescription = 'A Simple Gallery';
-$galleryRandomize = false;
-$imagesPerPage = 10;
-$imageFormat = 'jpg';
-$imageDirectory = 'imgs/';
+include('./settings.php');
 
 //Retrieval of the images
 $images = array();
@@ -41,9 +34,9 @@ foreach ($imagesInDir as $image) {
 	}
 
 	if ($imageSize[1] > $imageSize[0]) {
-		$images[] = '<a clas="gallery" href="'.$image.'"><img class="img-vertical" src="'.$image.'" alt="'.$imageExif["FileName"].'" /></a>';
+		$images[] = '<a clas="gallery" href="'.$image.'"><img class="img-vertical" src="img.php?i='.$image.'" alt="'.$imageExif["FileName"].'" /></a>';
 	} else {
-		$images[] = '<a class="gallery" href="'.$image.'"><img class="img-horizontal" src="'.$image.'" alt="'.$imageExif["FileName"].'" /></a>';
+		$images[] = '<a class="gallery" href="'.$image.'"><img class="img-horizontal" src="img.php?i='.$image.'" alt="'.$imageExif["FileName"].'" /></a>';
 	}
 }
 
